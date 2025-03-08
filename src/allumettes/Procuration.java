@@ -1,7 +1,7 @@
 package allumettes;
 
 public class Procuration implements Jeu {
-    
+
     /** The real game that is played */
     private final Jeu jeu;
     /** A boolean used to create or not the proxy */
@@ -36,7 +36,8 @@ public class Procuration implements Jeu {
 
 
     @Override
-    public void retirer(int nbPrises) throws CoupInvalideException, OperationInterditeException{
+    public void retirer(int nbPrises) throws CoupInvalideException,
+    OperationInterditeException {
         // Récupération des stacks frames
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
         // L'appelant intervient en deuxième
@@ -46,7 +47,7 @@ public class Procuration implements Jeu {
         if (!modeConfiant & (caller.contains("Tricheur") || tricheHumaine)) {
             throw new OperationInterditeException("triche");
         }
-        
+
         jeu.retirer(nbPrises);
     }
 

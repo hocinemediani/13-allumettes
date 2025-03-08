@@ -24,7 +24,8 @@ public class JeuReel implements Jeu {
      * @return True if the take is legal
      */
     public boolean coupValide(int nbPrises) {
-        return (nbPrises >= 1 & nbPrises <= Jeu.PRISE_MAX & nbPrises <= this.getNombreAllumettes() & this.getNombreAllumettes() - nbPrises >= 0);
+        return (nbPrises >= 1 & nbPrises <= Jeu.PRISE_MAX & nbPrises
+        <= this.getNombreAllumettes() & this.getNombreAllumettes() - nbPrises >= 0);
     }
 
 
@@ -35,12 +36,12 @@ public class JeuReel implements Jeu {
                 String probleme;
 
                 if (nbPrises > Jeu.PRISE_MAX) {
-                    condition = " (> 3)";
+                    condition = " (> " + Jeu.PRISE_MAX + ")";
                 }
                 if (nbPrises >= this.getNombreAllumettes()) {
                     condition = " (> " + this.getNombreAllumettes() + ")";
                 }
-                
+
                 probleme = "Impossible ! Nombre invalide : " + nbPrises + condition;
                 System.out.println(probleme);
                 System.out.println();

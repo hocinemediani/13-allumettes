@@ -6,7 +6,7 @@ public class Naif extends Joueur implements Strategie {
 
     /** Creates an instance of JoueurNaif. A naive
      * player will randomly withdraw an amount of matches
-     * between 1 and 3 without generating any errors.
+     * between 1 and PRISE_MAX without generating any errors.
      * @param name The name of the player
      */
     public Naif(String name) {

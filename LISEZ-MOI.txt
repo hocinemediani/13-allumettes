@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
-Nom       : 
-Prénom    : 
-Groupe TP : 
+Nom       : Mediani
+Prénom    : Hocine
+Groupe TP : G
 --------------------------------------------------------------------------------
 
 Consigne : Dans ce fichier, les « ... » indiquent les endroits à compléter.
@@ -16,7 +16,7 @@ prises en compte dans la notation du projet.
 Il faut remplacer les ... par des nombres.
 
 
-* Temps passé sur la V1 : ... heures ... minutes
+* Temps passé sur la V1 : 7 heures 0 minutes
 * Temps passé sur la V2 : ... heures ... minutes
 
 Pour la V2 on ne tiendra pas compte du temps passé sur la V1.
@@ -29,7 +29,9 @@ Pourquoi l'exception OperationInterditeException ne peut pas être définie
 comme vérifiée par le compilateur ?
 --------------------------------------------------------------------------------
 
-...
+L'exception OperationInterditeException ne peut pas être définie comme vérifiée
+par le compilateur car nous ne la levons que pour les tentatives de triche et
+que ces dernières ne sont pas forcément traitées lors de la compilation.
 
 
 --------------------------------------------------------------------------------
@@ -38,7 +40,10 @@ exemple la stratégie lente (C13).  Pour plus de précision, on numérotera
 les étapes à faire.
 --------------------------------------------------------------------------------
 
-...
+Pour ajouter un nouveau niveau de jeu, il faudra dans l'ordre :
+    1. Créer la stratégie Lente.java
+    2. Implémenter l'interface Stratégie
+    3. Changer dans Jouer.java le case en ajoutant un cas pour le joueur lent
 
 
 --------------------------------------------------------------------------------
@@ -46,7 +51,11 @@ Expliquer ce qui permet, dans votre conception, de changer dynamiquement
 (en cours d'exécution du programme) la stratégie d'un joueur (C14).
 --------------------------------------------------------------------------------
 
-...
+Dans ma conception, ce qui permet de changer en cours d'éxécution du programme
+la stratégie du joueur est le fait que la stratégie n'est pas héritée mais est
+un attribut de chaque joueur. Ainsi, en utilisant la méthode setStratégie lors
+du déroulement de la partie avec la stratégie voulue, il est possible de changer
+dynamiquement la stratégie d'un joueur.
 
 
 =====[ Explications ]===========================================================

@@ -30,12 +30,15 @@ public class Humain extends Joueur implements Strategie {
             if (input.equalsIgnoreCase("triche")) {
                 try {
                     ((Procuration) jeu).setTriche();
+                } catch (ClassCastException e) {
+                    // Only happens when a proxy isn't used
+                }
+                try {
                     jeu.retirer(1);
                 } catch (CoupInvalideException e) {
-                } catch (ClassCastException e) {
-                    // Only happens when a proxyh isn't used
                 }
-                System.out.println("[Une allumette en moins, plus que " + jeu.getNombreAllumettes() + ". Chut !]");
+                System.out.println("[Une allumette en moins, plus que "
+                + jeu.getNombreAllumettes() + ". Chut !]");
                 System.out.print(super.getNom() + ", combien d'allumettes ? ");
             } else {
                 try {
@@ -44,11 +47,9 @@ public class Humain extends Joueur implements Strategie {
                 } catch (NumberFormatException e) {
                     System.out.println("Vous devez donner un entier.");
                     System.out.print(super.getNom() + ", combien d'allumettes ? ");
-                    scanner.nextLine();
                 }
             }
         }
-
         return toWithdraw;
     }
 

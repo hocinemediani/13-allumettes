@@ -41,7 +41,8 @@ public class Arbitre {
             this.cycleTurn();
             System.out.println(this.currentPlayer.getNom() + " gagne !");
         } catch (OperationInterditeException e) {
-            System.out.println("Abandon de la partie car " + currentPlayer.getNom() + " triche !");
+            System.out.println("Abandon de la partie car " + currentPlayer.getNom()
+            + " triche !");
         }
     }
 

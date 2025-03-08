@@ -1,9 +1,0 @@
-5,9c5,6
-< Tricheur, combien d'allumettes ? Exception in thread "main" java.lang.UnsupportedOperationException: Not supported yet.
-< 	at allumettes.JoueurTricheur.getPrise(JoueurTricheur.java:11)
-< 	at allumettes.Arbitre.playTurn(Arbitre.java:62)
-< 	at allumettes.Arbitre.arbitrer(Arbitre.java:36)
-< 	at allumettes.Jouer.main(Jouer.java:34)
----
-> [Je triche...]
-> Abandon de la partie car Tricheur triche !

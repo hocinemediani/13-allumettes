@@ -40,4 +40,9 @@ public class Joueur {
         return this.name;
     }
 
+
+    public int getPrise(Jeu jeu) {
+        return this.strategy.getPrise(jeu);
+    }
+
 }

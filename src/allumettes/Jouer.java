@@ -37,51 +37,62 @@ public class Jouer {
 	}
 
 	/** Creates an instance of player depending on its type.
-	 * @param playerArgs The arguments passed to create the player
-	 * in the form of "name@strategy"
-	 * @param scanner The scanner used to get input from a human
-	 * player
-	 * @return A player with the correct name and type
-	 */
-	public static Joueur initializePlayer(String playerArgs, Scanner scanner) {
-		String[] playerArgsArray = playerArgs.split("@");
-		String name = playerArgsArray[0];
-		String strategy = playerArgsArray[1];
-		Joueur newPlayer = new Joueur(name);
-		switch (strategy.toLowerCase()) {
-			case "naif":
-				newPlayer.setStrategie(new Naif(name));
-				return newPlayer;
-			case "rapide":
-				newPlayer.setStrategie(new Rapide(name));
-				return newPlayer;
-			case "expert":
-				newPlayer.setStrategie(new Expert(name));
-				return newPlayer;
-			case "tricheur":
-				newPlayer.setStrategie(new Tricheur(name));
-				return newPlayer;
-			case "humain":
-				newPlayer.setStrategie(new Humain(name, scanner));
-				return newPlayer;
-			default:
-				throw new ConfigurationException("Erreur sur" +
-				"le nom de la stratégie");
-		}
-	}
+     * @param playerArgs The arguments passed to create the player
+     * in the form of "name@strategy"
+     * @param scanner The scanner used to get input from a human
+     * player
+     * @return A player with the correct name and type
+     */
+    public static Joueur initializePlayer(String playerArgs, Scanner scanner) {
+        String[] playerArgsArray = playerArgs.split("@");
+        String name = playerArgsArray[0];
+        String strategy = playerArgsArray[1];
+        Joueur newPlayer = new Joueur(name);
+        switch (strategy.toLowerCase()) {
+            case "naif":
+                newPlayer.setStrategie(new Naif(name));
+                return newPlayer;
+            case "rapide":
+                newPlayer.setStrategie(new Rapide(name));
+                return newPlayer;
+            case "expert":
+                newPlayer.setStrategie(new Expert(name));
+                return newPlayer;
+            case "tricheur":
+                newPlayer.setStrategie(new Tricheur(name));
+                return newPlayer;
+            case "humain":
+                newPlayer.setStrategie(new Humain(name, scanner));
+                return newPlayer;
+            default:
+                throw new ConfigurationException("Erreur sur"
+                + "le nom de la stratégie");
+        }
+    }
 
 
-	private static void verifierNombreArguments(String[] args) {
-		final int nbJoueurs = 2;
-		if (args.length < nbJoueurs) {
-			throw new ConfigurationException("Trop peu d'arguments : "
-					+ args.length);
-		}
-		if (args.length > nbJoueurs + 1) {
-			throw new ConfigurationException("Trop d'arguments : "
-					+ args.length);
-		}
-	}
+    private static void verifierNombreArguments(String[] args) {
+        final int nbJoueurs = 2;
+        try {
+            String[] playerArgsArray1 = args[args.length - 2].split("@");
+            String name1 = playerArgsArray1[0];
+            String strategy1 = playerArgsArray1[1];
+            String[] playerArgsArray2 = args[args.length - 1].split("@");
+            String name2 = playerArgsArray2[0];
+            String strategy2 = playerArgsArray2[1];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Pas assez d'arguments dans l'appel des joueurs");
+        }
+        if (args.length < nbJoueurs) {
+            throw new ConfigurationException("Trop peu d'arguments : "
+                    + args.length);
+        }
+        if (args.length > nbJoueurs + 1) {
+            throw new ConfigurationException("Trop d'arguments : "
+                    + args.length);
+        }
+    }
+
 
 	/** Afficher des indications sur la manière d'exécuter cette classe. */
 	public static void afficherUsage() {

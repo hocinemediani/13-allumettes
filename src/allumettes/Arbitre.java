@@ -54,12 +54,12 @@ public class Arbitre {
         String allumettesString = "";
 
         // Asks for the number of matches to withdraw
-        if (!"Ordinateur".equals(currentPlayer.getNom())) {
+        if (currentPlayer.getStrategie() instanceof Humain) {
             // If the player is real, uses the scanner to get its input
             System.out.print(currentPlayer.getNom() + ", combien d'allumettes ? ");
         }
 
-        toWithdraw = currentPlayer.getPrise(jeu);
+        toWithdraw = currentPlayer.getStrategie().getPrise(jeu);
         if (toWithdraw > 1) {
             allumettesString = "s";
         }

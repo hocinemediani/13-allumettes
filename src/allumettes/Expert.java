@@ -2,18 +2,20 @@ package allumettes;
 
 import java.util.Random;
 
-public class JoueurExpert extends Joueur {
+public class Expert extends Joueur implements Strategie {
 
     /** Variable used to calculate the best move */
     private static final int MODULO = Jeu.PRISE_MAX + 1;
+
 
     /** Creates an instance of JoueurExpert. An
      * expert player will always make the best move
      * available, or withdraw a random amount of
      * matches if he can't play the current best move.
+     * @param name The name of the player
      */
-    public JoueurExpert() {
-        super("Ordinateur");
+    public Expert(String name) {
+        super(name);
     }
 
 

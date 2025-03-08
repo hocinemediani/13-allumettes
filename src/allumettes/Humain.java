@@ -3,10 +3,10 @@ package allumettes;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class JoueurHumain extends Joueur {
+public class Humain extends Joueur implements Strategie {
 
     /** Scanner used to get input from the user */
-    private Scanner scanner;
+    private final Scanner scanner;
 
 
     /** Creates an instance of JoueurHumain. The joueur
@@ -15,7 +15,7 @@ public class JoueurHumain extends Joueur {
      * @param name The name of the player
      * @param scanner The scanner for the player
      */
-    public JoueurHumain(String name, Scanner scanner) {
+    public Humain(String name, Scanner scanner) {
         super(name);
         this.scanner = scanner;
     }

@@ -1,9 +1,12 @@
 package allumettes;
 
-public abstract class Joueur {
+public class Joueur {
 
     /** Name of the player. */
-    private String name;
+    private final String name;
+
+    /** Strategy of the player */
+    private Strategie strategy;
 
 
     /** Create a player from its name.
@@ -14,20 +17,27 @@ public abstract class Joueur {
     }
 
 
+    /** Sets the strategy of a player to the specified one.
+     * @param strategy The new strategy of the player
+     */
+    public void setStrategie(Strategie strategy) {
+        this.strategy = strategy;
+    }
+
+
+    /** Returns the strategy of a player.
+     * @return The strategy of the player
+     */
+    public Strategie getStrategie() {
+        return this.strategy;
+    }
+
+
     /** Returns the name of a player.
      * @return The name of the player
      */
     public String getNom() {
         return this.name;
     }
-
-
-    /** Abstract method to get the number of matches
-     * to withdraw depending on the player's strategy.
-     * @param jeu The game this player belongs to
-     * @return The number of matches the player wants
-     * to withdraw
-     */
-    public abstract int getPrise(Jeu jeu);
 
 }

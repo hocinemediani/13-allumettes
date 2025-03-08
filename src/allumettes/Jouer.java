@@ -24,33 +24,44 @@ public class Jouer {
 			afficherUsage();
 			System.exit(1);
 		}
-		String[] argsPlayer1 = args[args.length - 2].split("@");
-		String[] argsPlayer2 = args[args.length - 1].split("@");
+		String player1Args = args[args.length - 2];
+		String player2Args = args[args.length - 1];
 		Jeu jeu = new JeuReel(NUM_MATCHES);
 		Scanner scanner = new Scanner(System.in);
-		Joueur j1 = initializePlayer(argsPlayer1[0], argsPlayer1[1], scanner);
-		Joueur j2 = initializePlayer(argsPlayer2[0], argsPlayer2[1], scanner);
+		Joueur j1 = initializePlayer(player1Args, scanner);
+		Joueur j2 = initializePlayer(player2Args, scanner);
 		Arbitre arbitre = new Arbitre(j1, j2);
 		arbitre.arbitrer(jeu);
 	}
 
 	/** Creates an instance of player depending on its type.
-	 * @param name The name of the player
-	 * @param type The type of the player (naive, human, ...)
+	 * @param playeArgs The arguments passed to create the player
+	 * in the form of "name@strategy"
+	 * @param scanner The scanner used to get input from a human
+	 * player
 	 * @return A player with the correct name and type
 	 */
-	public static Joueur initializePlayer(String name, String type, Scanner scanner) {
-		switch (type.toLowerCase()) {
+	public static Joueur initializePlayer(String playerArgs, Scanner scanner) {
+		String[] playerArgsArray = playerArgs.split("@");
+		String name = playerArgsArray[0];
+		String strategy = playerArgsArray[1];
+		Joueur newPlayer = new Joueur(name);
+		switch (strategy.toLowerCase()) {
 			case "naif":
-				return new JoueurNaif();
+				newPlayer.setStrategie(new Naif(name));
+				return newPlayer;
 			case "rapide":
-				return new JoueurRapide();
+				newPlayer.setStrategie(new Rapide(name));
+				return newPlayer;
 			case "expert":
-				return new JoueurExpert();
+				newPlayer.setStrategie(new Expert(name));
+				return newPlayer;
 			case "tricheur":
-				return new JoueurTricheur(name);
+				newPlayer.setStrategie(new Tricheur(name));
+				return newPlayer;
 			case "humain":
-				return new JoueurHumain(name, scanner);
+				newPlayer.setStrategie(new Humain(name, scanner));
+				return newPlayer;
 			default:
 				throw new ConfigurationException("Erreur sur le nom de la stratégie");
 		}

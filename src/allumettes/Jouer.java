@@ -27,7 +27,8 @@ public class Jouer {
 		String player1Args = args[args.length - 2];
 		String player2Args = args[args.length - 1];
 		boolean modeConfiant = args[0].equals("-confiant");
-		Jeu jeu = modeConfiant ? new JeuReel(NUM_MATCHES) : new Procuration(NUM_MATCHES);
+		Jeu jeuReel = new JeuReel(NUM_MATCHES);
+		Jeu jeu = modeConfiant ? jeuReel : new Procuration(jeuReel, false);
 		Scanner scanner = new Scanner(System.in);
 		Joueur j1 = initializePlayer(player1Args, scanner);
 		Joueur j2 = initializePlayer(player2Args, scanner);

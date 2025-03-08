@@ -47,7 +47,7 @@ public class Arbitre {
 
 
     /** Asks the current player for the number of matches to withdraw.
-     * The wording / steps depends on whether the player is human or not.
+     * Plays the turn if it is valid.
      * @param jeu The game playing
      */
     public void playTurn(Jeu jeu) {

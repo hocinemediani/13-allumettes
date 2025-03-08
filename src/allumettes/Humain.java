@@ -1,6 +1,5 @@
 package allumettes;
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Humain extends Joueur implements Strategie {
@@ -26,16 +25,27 @@ public class Humain extends Joueur implements Strategie {
         boolean isValid = false;
         int toWithdraw = 0;
         while (!isValid) {
-            try {
-                toWithdraw = scanner.nextInt();
-                scanner.nextLine();
-                isValid = true;
-            } catch (InputMismatchException e) {
-                System.out.println("Vous devez donner un entier.");
+            String input = scanner.nextLine().trim();
+
+            if (input.equalsIgnoreCase("triche")) {
+                try {
+                    jeu.retirer(1);
+                } catch (CoupInvalideException e) {
+                }
+                System.out.println("[Une allumette en moins, plus que " + jeu.getNombreAllumettes() + ". Chut !]");
                 System.out.print(super.getNom() + ", combien d'allumettes ? ");
-                scanner.nextLine();
+            } else {
+                try {
+                    toWithdraw = Integer.parseInt(input);
+                    isValid = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Vous devez donner un entier.");
+                    System.out.print(super.getNom() + ", combien d'allumettes ? ");
+                    scanner.nextLine();
+                }
             }
         }
+
         return toWithdraw;
     }
 

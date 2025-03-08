@@ -1,0 +1,15 @@
+src/allumettes/Arbitre.class
+src/allumettes/ConfigurationException.class
+src/allumettes/CoupInvalideException.class
+src/allumettes/Expert.class
+src/allumettes/Humain.class
+src/allumettes/Jeu.class
+src/allumettes/JeuReel.class
+src/allumettes/Jouer.class
+src/allumettes/Joueur.class
+src/allumettes/Naif.class
+src/allumettes/OperationInterditeException.class
+src/allumettes/Procuration.class
+src/allumettes/Rapide.class
+src/allumettes/Strategie.class
+src/allumettes/Tricheur.class

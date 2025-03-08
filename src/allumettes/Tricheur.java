@@ -17,13 +17,13 @@ public class Tricheur extends Joueur implements Strategie {
     @Override
     public int getPrise(Jeu jeu) {
         System.out.println("[Je triche ...]");
-        System.out.println("[Allumettes restantes : 2]");
         try {
             while (jeu.getNombreAllumettes() > 2) {
                 jeu.retirer(1);
             }
         } catch (CoupInvalideException e) {
         }
+        System.out.println("[Allumettes restantes : 2]");
         return 1;
     }
 

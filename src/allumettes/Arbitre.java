@@ -29,16 +29,20 @@ public class Arbitre {
      * @param jeu The game playing
      */
     public void arbitrer(Jeu jeu) {
-        while (jeu.getNombreAllumettes() > 0) {
-            System.out.println("Allumettes restantes : " + jeu.getNombreAllumettes());
-            this.playTurn(jeu);
+        try {
+            while (jeu.getNombreAllumettes() > 0) {
+                System.out.println("Allumettes restantes : " + jeu.getNombreAllumettes());
+                this.playTurn(jeu);
+                this.cycleTurn();
+                System.out.println();
+            }
             this.cycleTurn();
-            System.out.println();
+            System.out.println(this.currentPlayer.getNom() + " perd !");
+            this.cycleTurn();
+            System.out.println(this.currentPlayer.getNom() + " gagne !");
+        } catch (OperationInterditeException e) {
+            System.out.println("Abandon de la partie car " + currentPlayer.getNom() + " triche !");
         }
-        this.cycleTurn();
-        System.out.println(this.currentPlayer.getNom() + " perd !");
-        this.cycleTurn();
-        System.out.println(this.currentPlayer.getNom() + " gagne !");
     }
 
 

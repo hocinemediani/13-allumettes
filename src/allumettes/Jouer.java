@@ -26,7 +26,9 @@ public class Jouer {
 		}
 		String player1Args = args[args.length - 2];
 		String player2Args = args[args.length - 1];
-		Jeu jeu = new JeuReel(NUM_MATCHES);
+		boolean modeConfiant = args[0].equals("-confiant");
+		Jeu jeu = modeConfiant ? new JeuReel(NUM_MATCHES)
+		: new Procuration(NUM_MATCHES);
 		Scanner scanner = new Scanner(System.in);
 		Joueur j1 = initializePlayer(player1Args, scanner);
 		Joueur j2 = initializePlayer(player2Args, scanner);
@@ -63,7 +65,8 @@ public class Jouer {
 				newPlayer.setStrategie(new Humain(name, scanner));
 				return newPlayer;
 			default:
-				throw new ConfigurationException("Erreur sur le nom de la stratégie");
+				throw new ConfigurationException("Erreur sur" +
+				"le nom de la stratégie");
 		}
 	}
 

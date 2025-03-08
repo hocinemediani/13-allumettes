@@ -5,7 +5,7 @@ import java.util.Random;
 public class JoueurExpert extends Joueur {
 
     /** Variable used to calculate the best move */
-    privte static int MODULO = Jeu.PRISE_MAX + 1;
+    private static final int MODULO = Jeu.PRISE_MAX + 1;
 
     /** Creates an instance of JoueurExpert. An
      * expert player will always make the best move

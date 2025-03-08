@@ -9,7 +9,7 @@ import java.util.Scanner;
  */
 public class Jouer {
 
-	private static int MATCHES = 13;
+	private static final int NUM_MATCHES = 13;
 
 	/** Lancer une partie. En argument sont donnés les deux joueurs sous
 	 * la forme nom@stratégie.
@@ -26,7 +26,7 @@ public class Jouer {
 		}
 		String[] argsPlayer1 = args[args.length - 2].split("@");
 		String[] argsPlayer2 = args[args.length - 1].split("@");
-		Jeu jeu = new JeuReel(MATCHES);
+		Jeu jeu = new JeuReel(NUM_MATCHES);
 		Scanner scanner = new Scanner(System.in);
 		Joueur j1 = initializePlayer(argsPlayer1[0], argsPlayer1[1], scanner);
 		Joueur j2 = initializePlayer(argsPlayer2[0], argsPlayer2[1], scanner);

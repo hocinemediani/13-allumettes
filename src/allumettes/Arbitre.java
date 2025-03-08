@@ -65,7 +65,7 @@ public class Arbitre {
         }
         System.out.println(currentPlayer.getNom() + " prend " + toWithdraw + " allumette"
         + allumettesString + ".");
-        
+
         // Verify the validity of the take
         try {
             jeu.retirer(toWithdraw);

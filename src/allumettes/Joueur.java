@@ -1,7 +1,7 @@
 package allumettes;
 
 public abstract class Joueur {
-    
+
     /** Name of the player. */
     private String name;
 
@@ -28,6 +28,6 @@ public abstract class Joueur {
      * @return The number of matches the player wants
      * to withdraw
      */
-    public abstract int getPrise (Jeu jeu);
+    public abstract int getPrise(Jeu jeu);
 
 }

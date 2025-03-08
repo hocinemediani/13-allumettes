@@ -24,7 +24,7 @@ public class JoueurHumain extends Joueur {
     @Override
     public int getPrise(Jeu jeu) {
         boolean isValid = false;
-        int toWithdraw = 8;
+        int toWithdraw = 0;
         while (!isValid) {
             try {
                 toWithdraw = scanner.nextInt();

@@ -24,7 +24,7 @@ public class Expert extends Joueur implements Strategie {
         int toWithdraw;
         if (jeu.getNombreAllumettes() % MODULO == 1) {
             Random randomNumber = new Random();
-            int maxTake = Math.max (Jeu.PRISE_MAX, jeu.getNombreAllumettes());
+            int maxTake = Math.min(Jeu.PRISE_MAX, jeu.getNombreAllumettes());
             toWithdraw = randomNumber.nextInt(maxTake) + 1;
         } else {
             toWithdraw = ((jeu.getNombreAllumettes() % MODULO - 1) + MODULO) % MODULO;

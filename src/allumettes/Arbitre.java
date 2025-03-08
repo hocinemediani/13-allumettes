@@ -30,11 +30,8 @@ public class Arbitre {
      */
     public void arbitrer(Jeu jeu) {
         while (jeu.getNombreAllumettes() > 0) {
-            // Display the number of matches remaining
             System.out.println("Allumettes restantes : " + jeu.getNombreAllumettes());
-            // Plays the current player turn
             this.playTurn(jeu);
-            // Cycle the current player
             this.cycleTurn();
             System.out.println();
         }
@@ -53,9 +50,7 @@ public class Arbitre {
         int toWithdraw;
         String allumettesString = "";
 
-        // Asks for the number of matches to withdraw
         if (currentPlayer.getStrategie() instanceof Humain) {
-            // If the player is real, uses the scanner to get its input
             System.out.print(currentPlayer.getNom() + ", combien d'allumettes ? ");
         }
 
@@ -63,6 +58,7 @@ public class Arbitre {
         if (toWithdraw > 1) {
             allumettesString = "s";
         }
+
         System.out.println(currentPlayer.getNom() + " prend " + toWithdraw + " allumette"
         + allumettesString + ".");
 

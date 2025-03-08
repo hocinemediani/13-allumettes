@@ -16,7 +16,15 @@ public class Tricheur extends Joueur implements Strategie {
 
     @Override
     public int getPrise(Jeu jeu) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        System.out.println("[Je triche ...]");
+        System.out.println("[Allumettes restantes : 2]");
+        try {
+            while (jeu.getNombreAllumettes() > 2) {
+                jeu.retirer(1);
+            }
+        } catch (CoupInvalideException e) {
+        }
+        return 1;
     }
 
 }

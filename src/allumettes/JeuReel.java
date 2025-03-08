@@ -33,12 +33,14 @@ public class JeuReel implements Jeu {
             if (!coupValide(nbPrises)) {
                 String condition = " (< 1)";
                 String probleme;
+
                 if (nbPrises > Jeu.PRISE_MAX) {
                     condition = " (> 3)";
                 }
                 if (nbPrises >= this.getNombreAllumettes()) {
                     condition = " (> " + this.getNombreAllumettes() + ")";
                 }
+                
                 probleme = "Impossible ! Nombre invalide : " + nbPrises + condition;
                 System.out.println(probleme);
                 System.out.println();

@@ -1,0 +1,108 @@
+Règles générales :
+    - Allumettes initiales : 13
+    - Chaque tour, le joueur actuel tire un nombre d'allumettes
+    - Celui qui prends la dernière allumette perd
+    - Si un joueur prends trop ou trop peu d'allumettes, le coup est
+    refusé et le joueur doit rejouer
+    - Chaque joueur retire entre 1 et 3 allumettes
+    - Une exception CoupInvalideException est relevée lors du non
+    respect des règles
+
+
+Arbitre :
+    - Possède un constructeur qui prend en paramètre deux joueurs j1
+    et j2
+    - Une seule partie peut être arbitrée entre ces deux joueurs
+    - L'arbitre fait jouer en commençant par le joueur j1
+    - Il affiche le nombre d'allumettes, demande le nombre d'allumettes
+    à prendre, affiche le nombre et retire les allumettes du jeu
+    - Les joueurs ont accès au jeu par l'intermédiaire de l'arbitre
+
+    L'ordinateur est l'arbitre de la partie :
+        => Affiche le nombre d'allumettes restant en jeu
+        => Donne la main à tour de rôle à chaque joueur
+        => Vérifie que les joueurs respectent les règles du jeu
+        => Affiche le résultat en fin de partie
+
+    Affichage arbitre :
+        Tour Humain :
+            Allumettes restantes : "nombre allumettes"
+            "Joueur", combien d'allumettes ? "input"
+            "Joueur" prends "input" allumettes.
+
+        Tour Ordinateur :
+            Allumettes restantes : "nombre allumettes"
+            Ordinateur prends "à retirer" allumette(s).
+        
+        Tour Humain mauvais type :
+            Allumettes restantes : "nombre allumettes"
+            "Joueur", combien d'allumettes ? "input incorrect"
+            Vous devez donner un entier.
+            => Redemande à partir de "Joueur"...
+        
+        Tour Humain incorrect :
+            Allumettes restantes : "nombre allumettes"
+            "Joueur", combien d'allumettes ? "input incorrect"
+            "Joueur" prends "input incorrect" allumettes.
+            Impossible ! Nombre invalide : "input incorrect" ("raison")
+            => Redemande à partir de "Allumettes"...
+        
+        Fin de jeu :
+            Ordinateur perd/gagne !
+            "Joueur" perd/gagne !
+
+
+Niveaux de jeu :
+    => Humain, demande à l'utilisateur le nombre d'allumettes à retirer
+    => Rapide, l'ordinateur prends le maximum d'allumettes possible
+    => Naif, l'ordinateur choisit aléatoirement un nombre entre 1 et 3
+    => Expert, l'ordinateur joue du mieux qu'il peut
+
+
+Joueur :
+    - Modélise un joueur
+    - Un joueur à un nombre
+    - On peut demander à un joueur le nombre d'allumettes qu'il veut
+    prendre pour un jeu donné (getPrise)
+    - Un joueur détermine le nombre d'allumettes à prendre en fonction
+    de sa stratégie
+
+
+Jeu :
+    - Modélise le plateau du jeu des 13 allumettes, y compris les règles
+    sur la prise des allumettes
+    - Est caractérisé par le nombre d'allumettes encore présentes
+
+
+Utilisation de Procuration :
+    - A implémenter
+
+
+Contraintes :
+    - Respecter le diagramme de classe déjà existant
+    - Utiliser java.util.Scanner pour communiquer avec l'utilisateur
+    - Permettre d'avoir un nombre initial d'allumettes quelconque
+    - Utiliser la méthode split de String pour récupérer le nom et la
+    stratégie de chaque joueur dans la classe jouer
+    - Ecrire un programme robuste lors de l'interprétation des arguments
+    de la ligne de commande avec les exceptions
+    - Utiliser java.util.Random pour la classe naïf
+    - Pouvoir ajouter de nouvelles stratégies de jeu sans modifier aucune
+    des classes existants à l'exception de la classe jouer
+    - Permettre de changer en cours de partie la stratégie suivie par un
+    joueur (sans forcément implémenter ce changement)
+    - Utiliser JUnit pour les classes de tests unitaires
+    - Fournir des tests complets pour la stratégie rapide, "en utilisant
+    le minimum de classes de l'application"?
+    - Respecter l'IHM des exemples
+    - Ne pas changer les interfaces et classes d'exception
+    - Veiller à garder les méthodes courtes
+
+Temps :
+    - 35 minutes, compréhension et rédaction de ce résumé du sujet
+    - 25 minutes, implémentation de Joueur, JoueurNaif et JoueurRapide
+    - 15 minutes, implémentation de JoueurExpert
+    - 30 minutes, travail sur Arbitre, manque encore la vérification et
+    le retrait des allumettes
+    - 20 minutes, implémentation de la fin d'Arbitre et de JeuReel
+    - 

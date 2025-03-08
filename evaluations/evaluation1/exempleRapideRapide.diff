@@ -1,0 +1,26 @@
+2c2
+< Ordinateur prend 3 allumettes.
+---
+> R1 prend 3 allumettes.
+5c5
+< Ordinateur prend 3 allumettes.
+---
+> R2 prend 3 allumettes.
+8c8
+< Ordinateur prend 3 allumettes.
+---
+> R1 prend 3 allumettes.
+11c11
+< Ordinateur prend 3 allumettes.
+---
+> R2 prend 3 allumettes.
+14c14
+< Ordinateur prend 1 allumette.
+---
+> R1 prend 1 allumette.
+16,17c16,17
+< Ordinateur perd !
+< Ordinateur gagne !
+---
+> R1 perd !
+> R2 gagne !

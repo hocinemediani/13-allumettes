@@ -1,0 +1,4 @@
+allumettes/Joueur.java:22: error: non-static method getNombreAllumettes() cannot be referenced from a static context
+            case 2: toWithdraw = Math.max (3, Jeu.getNombreAllumettes());
+                                                 ^
+1 error

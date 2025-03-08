@@ -1,0 +1,20 @@
+./allumettes/JoueurExpert.java:8: error: <identifier> expected
+    privte static int MODULO Jeu.PRISE_MAX + 1;
+          ^
+./allumettes/JoueurExpert.java:8: error: ';' expected
+    privte static int MODULO Jeu.PRISE_MAX + 1;
+                            ^
+./allumettes/JoueurExpert.java:8: error: <identifier> expected
+    privte static int MODULO Jeu.PRISE_MAX + 1;
+                                          ^
+./allumettes/JoueurExpert.java:8: error: cannot find symbol
+    privte static int MODULO Jeu.PRISE_MAX + 1;
+    ^
+  symbol:   class privte
+  location: class JoueurExpert
+./allumettes/JoueurExpert.java:8: error: cannot find symbol
+    privte static int MODULO Jeu.PRISE_MAX + 1;
+                                ^
+  symbol:   class PRISE_MAX
+  location: interface Jeu
+5 errors

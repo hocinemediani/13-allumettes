@@ -1,0 +1,61 @@
+File allumettes/JoueurRapide.java: 45 tokens, 19 lines
+File allumettes/Arbitre.java: 282 tokens, 87 lines
+File allumettes/Jouer.java: 354 tokens, 86 lines
+File allumettes/CoupInvalideException.java: 68 tokens, 39 lines
+File allumettes/JoueurTricheur.java: 38 tokens, 14 lines
+File allumettes/Jeu.java: 23 tokens, 21 lines
+File allumettes/JoueurHumain.java: 112 tokens, 42 lines
+File allumettes/JoueurNaif.java: 63 tokens, 23 lines
+File allumettes/ConfigurationException.java: 21 tokens, 16 lines
+File allumettes/Joueur.java: 43 tokens, 33 lines
+File allumettes/JoueurExpert.java: 114 tokens, 33 lines
+File allumettes/OperationInterditeException.java: 21 tokens, 9 lines
+File allumettes/JeuReel.java: 196 tokens, 52 lines
+Total input: 13 files (13 new, 0 old), 1380 tokens
+
+allumettes/JoueurRapide.java: line 1-15 [28]
+allumettes/JoueurNaif.java: line 1-17
+< package allumettes;
+< 
+< public class JoueurRapide extends Joueur {
+< 
+<     /** Creates an instance of JoueurRapide. A quick
+<      * player will always take the maximum amount of
+<      * matches he can take without generating errors.
+<      */
+<     public JoueurRapide() {
+<         super("Ordinateur");
+<     }
+< 
+< 
+<     @Override
+<     public int getPrise(Jeu jeu) {
+---
+> package allumettes;
+> 
+> import java.util.Random;
+> 
+> public class JoueurNaif extends Joueur {
+> 
+>     /** Creates an instance of JoueurNaif. A naive
+>      * player will randomly withdraw an amount of matches
+>      * between 1 and 3 without generating any errors.
+>      */
+>     public JoueurNaif() {
+>         super("Ordinateur");
+>     }
+> 
+> 
+>     @Override
+>     public int getPrise(Jeu jeu) {
+
+allumettes/JoueurNaif.java: line 17-19 [27]
+allumettes/JoueurExpert.java: line 23-25
+<     public int getPrise(Jeu jeu) {
+<         Random randomNumber = new Random();
+<         int maxTake = Math.max(Jeu.PRISE_MAX, jeu.getNombreAllumettes());
+---
+>         if (jeu.getNombreAllumettes() % MODULO == 1) {
+>             Random randomNumber = new Random();
+>             int maxTake = Math.max (Jeu.PRISE_MAX, jeu.getNombreAllumettes());
+

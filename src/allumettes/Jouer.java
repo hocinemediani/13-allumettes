@@ -27,8 +27,7 @@ public class Jouer {
 		String player1Args = args[args.length - 2];
 		String player2Args = args[args.length - 1];
 		boolean modeConfiant = args[0].equals("-confiant");
-		Jeu jeu = modeConfiant ? new JeuReel(NUM_MATCHES)
-		: new Procuration(NUM_MATCHES);
+		Jeu jeu = modeConfiant ? new JeuReel(NUM_MATCHES) : new Procuration(NUM_MATCHES);
 		Scanner scanner = new Scanner(System.in);
 		Joueur j1 = initializePlayer(player1Args, scanner);
 		Joueur j2 = initializePlayer(player2Args, scanner);
@@ -37,7 +36,7 @@ public class Jouer {
 	}
 
 	/** Creates an instance of player depending on its type.
-	 * @param playeArgs The arguments passed to create the player
+	 * @param playerArgs The arguments passed to create the player
 	 * in the form of "name@strategy"
 	 * @param scanner The scanner used to get input from a human
 	 * player

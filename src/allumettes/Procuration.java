@@ -14,10 +14,10 @@ public class Procuration extends JeuReel {
     
     @Override
     public void retirer(int nbPrises) throws CoupInvalideException, OperationInterditeException{
-        // Récupération de la stackTrace
+        // Récupération des stacks frames
         StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-        // L'appelant intervient en deuxième (Procuration => Appelant => Arbitre
-        // => Arbitre => Jouer)
+        // L'appelant intervient en deuxième
+        // (Procuration => Joueur => Arbitre => Arbitre => Jouer)
         String caller = stackTrace[2].getClassName();
 
         if (caller.contains("Tricheur")) {
